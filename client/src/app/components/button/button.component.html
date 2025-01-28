@@ -1,0 +1,11 @@
+<div
+  class="button"
+  [ngStyle]="{
+    width: buttonWidth,
+    height: buttonHeight,
+    fontSize: fontSize,
+  }"
+>
+  {{ text }}
+  <i *ngIf="icon" class="{{ icon }}"></i>
+</div>

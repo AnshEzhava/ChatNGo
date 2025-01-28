@@ -1,0 +1,17 @@
+.button {
+  background-color: #000000;
+  font-family: "Inter";
+  color: white;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: 0.25s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #2d2d2d;
+}
