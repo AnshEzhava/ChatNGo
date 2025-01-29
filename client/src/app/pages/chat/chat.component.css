@@ -1,0 +1,26 @@
+.chat-content {
+  width: calc(100vw - 50px);
+  height: calc(100vh - 115px);
+  display: flex;
+  border-radius: 30px;
+  gap: 20px;
+  color: black;
+}
+
+.sidebar {
+  width: 15%;
+  background-color: #fff4e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+.chat-area {
+  width: 85%;
+  background-color: #fff4e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+}
