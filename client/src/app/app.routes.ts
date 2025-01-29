@@ -2,17 +2,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { ChatComponent } from './pages/chat/chat.component';
 import { NgModule } from '@angular/core';
+import { SessionoptionsComponent } from './pages/sessionoptions/sessionoptions.component';
 
 export const routes: Routes = [
-  {
-    path: 'welcome',
-    component: WelcomeComponent,
-  },
+  { path: 'welcome', component: WelcomeComponent },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
-  {
-    path: 'chat',
-    component: ChatComponent,
-  },
+  { path: 'options', component: SessionoptionsComponent },
+  { path: 'chat', component: ChatComponent },
 ];
 
 @NgModule({

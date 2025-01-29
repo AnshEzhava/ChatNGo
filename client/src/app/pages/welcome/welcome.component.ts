@@ -3,6 +3,7 @@ import { ButtonComponent } from '../../components/button/button.component';
 import { UserService } from '../../services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -15,7 +16,7 @@ export class WelcomeComponent implements OnInit {
   username: string = '';
   userIp: string = '';
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.userService.getUserIp().subscribe(
@@ -44,5 +45,7 @@ export class WelcomeComponent implements OnInit {
       },
       (error) => console.error('Error saving user:', error)
     );
+    // this.router.navigate(['/options']);
+    window.location.href = '/options';
   }
 }

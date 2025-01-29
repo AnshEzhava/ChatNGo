@@ -23,4 +23,8 @@ export class UserService {
       responseType: 'text',
     });
   }
+
+  findRegisteredUser(userIp: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/user/${userIp}`);
+  }
 }
