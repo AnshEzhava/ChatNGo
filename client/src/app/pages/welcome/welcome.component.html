@@ -6,6 +6,7 @@
     id="name-input"
     placeholder="Enter your name"
     class="name-input"
+    [(ngModel)]="username"
   />
   <app-button
     [buttonWidth]="'151px'"
@@ -13,5 +14,6 @@
     [icon]="'bx bx-right-arrow-alt'"
     [text]="'Go'"
     [fontSize]="'36px'"
+    (click)="sendUserData()"
   ></app-button>
 </div>
