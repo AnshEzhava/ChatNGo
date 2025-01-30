@@ -25,6 +25,14 @@ export class UserService {
   }
 
   findRegisteredUser(userIp: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/user/${userIp}`);
+    return this.http.get(`${this.baseUrl}/user/${userIp}`, {
+      responseType: 'text',
+    });
+  }
+
+  updateRegisteredUser(userIp: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/user/${userIp}`, {
+      responseType: 'text',
+    });
   }
 }

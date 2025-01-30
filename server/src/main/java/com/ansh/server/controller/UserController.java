@@ -25,12 +25,20 @@ public class UserController {
     @GetMapping("/{ipAddress}")
     public ResponseEntity<String> getUser(@PathVariable String ipAddress) {
         User user = userService.findByIpAddress(ipAddress);
-
         if(user == null) {
             return ResponseEntity.notFound().build();
         }
-
         return ResponseEntity.ok(user.getUsername());
     }
 
+    //TODO: In future, make this so that the name change is registered in a different collection on mongodb.
+    @DeleteMapping("/{ipAddress}")
+    public ResponseEntity<String> deleteUser(@PathVariable String ipAddress) {
+        User user = userService.findByIpAddress(ipAddress);
+        if(user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        userService.deleteUser(ipAddress);
+        return ResponseEntity.ok("User Deleted");
+    }
 }

@@ -23,6 +23,20 @@ export class WelcomeComponent implements OnInit {
       (response) => {
         this.userIp = response.ip;
         console.log('User IP:', this.userIp);
+
+        //TODO: Make it to be a non nested callback in future
+        this.userService.findRegisteredUser(this.userIp).subscribe(
+          (response) => {
+            console.log('Registered User:', response);
+            if (response != 'Not Found') {
+              console.log('User already registered');
+              this.router.navigate(['/options']);
+            } else {
+              console.log('User not registered');
+            }
+          },
+          (error) => console.error('Error fetching user:', error)
+        );
       },
       (error) => console.error('Error fetching IP:', error)
     );
@@ -45,7 +59,7 @@ export class WelcomeComponent implements OnInit {
       },
       (error) => console.error('Error saving user:', error)
     );
-    // this.router.navigate(['/options']);
+    this.router.navigate(['/options']);
     window.location.href = '/options';
   }
 }
