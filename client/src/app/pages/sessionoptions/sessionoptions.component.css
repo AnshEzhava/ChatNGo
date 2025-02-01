@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-items: flex-start;
   gap: 4px;
+  min-width: 600px;
 }
 
 .title {
@@ -13,18 +14,9 @@
   color: black;
 }
 
-.name-input {
-  height: 75px;
-  font-weight: bold;
-  font-size: 32px;
-  width: 587px;
-  border-radius: 30px;
-  padding-left: 20px;
-  border: 3px solid #000000;
-}
-
 .buttons {
   display: flex;
+  height: 124px;
 }
 
 .options {
@@ -52,4 +44,21 @@
 
 .options:hover {
   background-color: #2d2d2d;
+}
+
+.join-option {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.room-code-input {
+  height: 75px;
+  width: 587px;
+  font-family: "Inter";
+  font-weight: bold;
+  font-size: 32px;
+  border-radius: 30px;
+  padding-left: 20px;
+  border: 3px solid #000000;
 }

@@ -1,11 +1,33 @@
 <div class="options-box">
   <p class="title">Options</p>
   <div class="buttons">
-    <div class="join-button options">
+    <div
+      class="join-button options"
+      *ngIf="!isJoinExpanded"
+      (click)="toggleJoinRoom()"
+    >
       <p class="button-text">Join a room</p>
     </div>
-    <div class="create-button options">
+    <div class="create-button options" *ngIf="!isJoinExpanded">
       <p class="button-text">Create a room</p>
+    </div>
+    <div class="join-option" *ngIf="isJoinExpanded">
+      <input
+        type="text"
+        name="room-code-input"
+        id="room-code-input"
+        placeholder="Enter room code"
+        class="room-code-input"
+        [(ngModel)]="roomCode"
+      />
+      <app-button
+        [buttonWidth]="'75px'"
+        [buttonHeight]="'34px'"
+        [fontSize]="'18px'"
+        [text]="'Go'"
+        [icon]="'bx bx-right-arrow-alt'"
+        (click)="submitRoomCode()"
+      ></app-button>
     </div>
   </div>
 </div>
