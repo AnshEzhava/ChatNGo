@@ -21,7 +21,6 @@ public class UserController {
         userService.saveUser(user);
         return ResponseEntity.ok("User Saved");
     }
-
     @GetMapping("/{ipAddress}")
     public ResponseEntity<String> getUser(@PathVariable String ipAddress) {
         User user = userService.findByIpAddress(ipAddress);
