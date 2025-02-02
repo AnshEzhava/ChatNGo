@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-sessionoptions',
@@ -11,6 +12,23 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule, ButtonComponent],
   templateUrl: './sessionoptions.component.html',
   styleUrl: './sessionoptions.component.css',
+  animations: [
+    trigger('widthAnimation', [
+      transition(':enter', [
+        style({ width: '300px' }),
+        animate('300ms ease-out', style({ width: '600px' })),
+      ]),
+    ]),
+    trigger('fadeAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(10px)' }),
+        animate(
+          '300ms ease-out',
+          style({ opacity: 1, transform: 'translateY(0)' })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class SessionoptionsComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}

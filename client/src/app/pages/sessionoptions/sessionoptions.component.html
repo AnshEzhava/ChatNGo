@@ -5,13 +5,14 @@
       class="join-button options"
       *ngIf="!isJoinExpanded"
       (click)="toggleJoinRoom()"
+      @fadeAnimation
     >
       <p class="button-text">Join a room</p>
     </div>
-    <div class="create-button options" *ngIf="!isJoinExpanded">
+    <div class="create-button options" *ngIf="!isJoinExpanded" @fadeAnimation>
       <p class="button-text">Create a room</p>
     </div>
-    <div class="join-option" *ngIf="isJoinExpanded">
+    <div class="join-option" *ngIf="isJoinExpanded" @fadeAnimation>
       <input
         type="text"
         name="room-code-input"
@@ -20,6 +21,7 @@
         class="room-code-input"
         [(ngModel)]="roomCode"
       />
+      <!-- TODO: Add a back button. For this, make the text location dynamic... -->
       <app-button
         [buttonWidth]="'75px'"
         [buttonHeight]="'34px'"

@@ -3,7 +3,7 @@
     <p class="project-title">ChatNGo</p>
     <p>Icon</p>
   </div>
-  <div class="main-content">
-    <router-outlet></router-outlet>
+  <div class="main-content" [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>

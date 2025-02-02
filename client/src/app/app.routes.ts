@@ -5,10 +5,17 @@ import { NgModule } from '@angular/core';
 import { SessionoptionsComponent } from './pages/sessionoptions/sessionoptions.component';
 
 export const routes: Routes = [
-  { path: 'welcome', component: WelcomeComponent },
+  {
+    path: 'welcome',
+    component: WelcomeComponent,
+  },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
-  { path: 'options', component: SessionoptionsComponent },
-  { path: 'chat', component: ChatComponent },
+  {
+    path: 'options',
+    component: SessionoptionsComponent,
+    data: { animation: 'OptionsPage' },
+  },
+  { path: 'chat', component: ChatComponent, data: { animation: 'ChatPage' } },
 ];
 
 @NgModule({

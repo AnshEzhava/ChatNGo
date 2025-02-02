@@ -60,6 +60,5 @@ export class WelcomeComponent implements OnInit {
       (error) => console.error('Error saving user:', error)
     );
     this.router.navigate(['/options']);
-    window.location.href = '/options';
   }
 }
