@@ -3,6 +3,22 @@
     <p>Members</p>
   </div>
   <div class="chat-area">
-    <p>Chatting</p>
+    <div class="message-area">MESSAGES AREA</div>
+    <div class="chat-box">
+      <input
+        type="text"
+        [(ngModel)]="message"
+        placeholder="Message"
+        (keyup.enter)="sendMessage()"
+        class="messageBox"
+      />
+      <button
+        (click)="sendMessage()"
+        [disabled]="!message.trim"
+        class="messageSendButton"
+      >
+        <i class="bx bx-right-arrow-alt"></i>
+      </button>
+    </div>
   </div>
 </div>
