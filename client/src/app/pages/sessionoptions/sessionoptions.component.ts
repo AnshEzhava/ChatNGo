@@ -5,6 +5,7 @@ import { ButtonComponent } from '../../components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-sessionoptions',
@@ -31,7 +32,11 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ],
 })
 export class SessionoptionsComponent implements OnInit {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private chatService: ChatService
+  ) {}
   userIp: string = '';
   isJoinExpanded: boolean = false;
   roomCode: string = '';
@@ -60,10 +65,16 @@ export class SessionoptionsComponent implements OnInit {
   }
 
   submitRoomCode() {
-    console.log('Room code:', this.roomCode);
+    if (this.roomCode.trim()) {
+      localStorage.setItem('chatRoomID', this.roomCode);
+      this.chatService.connect(this.roomCode);
+      this.router.navigate(['/chat']);
+    }
   }
 
   toggleJoinRoom() {
     this.isJoinExpanded = !this.isJoinExpanded;
   }
+
+  createRoom() {}
 }

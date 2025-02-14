@@ -7,6 +7,7 @@
     placeholder="Enter your name"
     class="name-input"
     [(ngModel)]="username"
+    (keyup.enter)="sendUserData()"
   />
   <app-button
     [buttonWidth]="'151px'"
