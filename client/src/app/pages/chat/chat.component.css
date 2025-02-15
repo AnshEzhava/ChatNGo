@@ -30,7 +30,30 @@
   width: 100%;
   height: 93%;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 4px;
 }
+
+.message-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-area::-webkit-scrollbar-track {
+  background: #fff4e5;
+  border-radius: 10px;
+}
+
+.message-area::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+}
+
+.message-area::-webkit-scrollbar-thumb:hover {
+  background: #2d2d2d;
+}
+
 .chat-box {
   width: 100%;
   height: 7%;

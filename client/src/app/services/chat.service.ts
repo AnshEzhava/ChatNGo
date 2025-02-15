@@ -1,24 +1,43 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { WebSocketSubject } from 'rxjs/webSocket';
+
+export interface ChatMessage {
+  senderName: string;
+  messageText: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatService {
-  private socket$: WebSocketSubject<any> | null = null;
+  private socket$: WebSocketSubject<string> | null = null;
+  private roomId: string | null = null;
 
-  connect(roomID: string): void {
-    this.socket$ = new WebSocketSubject(`ws://localhost:8080/ws/${roomID}`);
+  constructor(private http: HttpClient) {}
+
+  createRoom(): Observable<string> {
+    return this.http.post(
+      'http://localhost:8080/api/room' + '/create',
+      {},
+      { responseType: 'text' }
+    );
   }
 
-  sendMessage(message: string): void {
+  connect(roomId: string): void {
+    this.roomId = roomId;
+    this.socket$ = new WebSocketSubject(`ws://localhost:8080/ws/${roomId}`);
+  }
+
+  sendMessage(message: ChatMessage): void {
     if (this.socket$) {
-      this.socket$.next(message);
+      this.socket$.next(JSON.stringify(message));
     }
   }
 
-  getMessage() {
-    return this.socket$?.asObservable;
+  getMessages(): Observable<string> | null {
+    return this.socket$ ? this.socket$.asObservable() : null;
   }
 
   disconnect(): void {

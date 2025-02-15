@@ -3,7 +3,13 @@
     <p>Members</p>
   </div>
   <div class="chat-area">
-    <div class="message-area">MESSAGES AREA</div>
+    <div class="message-area">
+      <app-chats
+        *ngFor="let msg of messages"
+        [senderName]="msg.senderName"
+        [message]="msg.messageText"
+      ></app-chats>
+    </div>
     <div class="chat-box">
       <input
         type="text"

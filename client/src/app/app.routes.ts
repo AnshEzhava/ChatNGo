@@ -15,7 +15,11 @@ export const routes: Routes = [
     component: SessionoptionsComponent,
     data: { animation: 'OptionsPage' },
   },
-  { path: 'chat', component: ChatComponent, data: { animation: 'ChatPage' } },
+  {
+    path: 'chat/:roomID',
+    component: ChatComponent,
+    data: { animation: 'ChatPage' },
+  },
 ];
 
 @NgModule({

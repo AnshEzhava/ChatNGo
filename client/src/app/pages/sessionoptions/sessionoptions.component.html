@@ -10,7 +10,7 @@
       <p class="button-text">Join a room</p>
     </div>
     <div class="create-button options" *ngIf="!isJoinExpanded" @fadeAnimation>
-      <p class="button-text">Create a room</p>
+      <p class="button-text" (click)="createRoom()">Create a room</p>
     </div>
     <div class="join-option" *ngIf="isJoinExpanded" @fadeAnimation>
       <input

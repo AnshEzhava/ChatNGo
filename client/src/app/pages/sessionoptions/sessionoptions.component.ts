@@ -49,6 +49,7 @@ export class SessionoptionsComponent implements OnInit {
         this.userService.findRegisteredUser(this.userIp).subscribe(
           (response) => {
             console.log('User found:', response);
+            localStorage.setItem('name', response);
           },
           (error) => {
             if (error.status === 404) {
@@ -64,6 +65,14 @@ export class SessionoptionsComponent implements OnInit {
     );
   }
 
+  createRoom() {
+    this.chatService.createRoom().subscribe((roomID) => {
+      console.log('Created Room: ' + roomID);
+      localStorage.setItem('roomID', roomID);
+      this.router.navigate(['/chat', roomID]);
+    });
+  }
+
   submitRoomCode() {
     if (this.roomCode.trim()) {
       localStorage.setItem('chatRoomID', this.roomCode);
@@ -75,6 +84,4 @@ export class SessionoptionsComponent implements OnInit {
   toggleJoinRoom() {
     this.isJoinExpanded = !this.isJoinExpanded;
   }
-
-  createRoom() {}
 }
