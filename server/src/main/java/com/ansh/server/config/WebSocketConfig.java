@@ -12,6 +12,6 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(new ChatWebSocketHandler(), "/ws/{roomID}")
-                .setAllowedOrigins("http://localhost:4200");
+                .setAllowedOrigins("http://localhost:4200", "http://192.168.228.54:4200", "https://chatngo.netlify.app/");
     }
 }

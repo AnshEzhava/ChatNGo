@@ -12,8 +12,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-
+    
     @PostMapping("/save")
     public ResponseEntity<String> addUser(@RequestBody User user) {
         System.out.println("Username: " + user.getUsername());
@@ -21,6 +20,7 @@ public class UserController {
         userService.saveUser(user);
         return ResponseEntity.ok("User Saved");
     }
+
     @GetMapping("/{ipAddress}")
     public ResponseEntity<String> getUser(@PathVariable String ipAddress) {
         User user = userService.findByIpAddress(ipAddress);
