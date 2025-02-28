@@ -77,7 +77,7 @@ export class SessionoptionsComponent implements OnInit {
     if (this.roomCode.trim()) {
       localStorage.setItem('chatRoomID', this.roomCode);
       this.chatService.connect(this.roomCode);
-      this.router.navigate(['/chat']);
+      this.router.navigate(['/chat/' + this.roomCode]);
     }
   }
 

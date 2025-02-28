@@ -18,10 +18,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   message: string = '';
   senderName = localStorage.getItem('name') || 'Anonymous';
 
-  constructor(
-    private chatService: ChatService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {
     this.roomID = localStorage.getItem('roomID');

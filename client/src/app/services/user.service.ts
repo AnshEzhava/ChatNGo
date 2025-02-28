@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8080/api';
+  private baseUrl = 'https://chatngo-backend.azurewebsites.net/api';
   constructor(private http: HttpClient) {}
 
   getUserIp(): Observable<any> {

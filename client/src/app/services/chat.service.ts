@@ -19,7 +19,7 @@ export class ChatService {
 
   createRoom(): Observable<string> {
     return this.http.post(
-      'http://localhost:8080/api/room' + '/create',
+      'https://chatngo-backend.azurewebsites.net/api/room' + '/create',
       {},
       { responseType: 'text' }
     );
@@ -27,7 +27,9 @@ export class ChatService {
 
   connect(roomId: string): void {
     this.roomId = roomId;
-    this.socket$ = new WebSocketSubject(`ws://localhost:8080/ws/${roomId}`);
+    this.socket$ = new WebSocketSubject(
+      `wss://chatngo-backend.azurewebsites.net/ws/${roomId}`
+    );
   }
 
   sendMessage(message: ChatMessage): void {
